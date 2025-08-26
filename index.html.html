@@ -1,0 +1,1437 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Generador de Módulos PNFT 2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Quicksand', 'Segoe UI', sans-serif;
+    }
+    body {
+      background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      background: linear-gradient(135deg, #003366, #0055aa);
+      color: white;
+      text-align: center;
+      padding: 15px 20px;
+      border-bottom: 8px solid #ffd700;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    header .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    header .logo img {
+      height: 50px;
+      border-radius: 4px;
+    }
+    header .logo h1 {
+      font-size: 22px;
+      margin: 0;
+      font-weight: 700;
+    }
+    .lang-switch {
+      display: flex;
+      gap: 8px;
+    }
+    .lang-switch button {
+      background: none;
+      border: 2px solid white;
+      color: white;
+      padding: 4px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      opacity: 0.8;
+    }
+    .lang-switch button.active {
+      background: white;
+      color: #003366;
+      opacity: 1;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* Portada */
+    .portada {
+      text-align: center;
+      padding: 50px 20px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+      margin-bottom: 30px;
+    }
+    .portada h1 {
+      font-size: 36px;
+      color: #003366;
+      margin-bottom: 16px;
+    }
+    .portada p {
+      font-size: 18px;
+      color: #555;
+      max-width: 800px;
+      margin: 0 auto 30px;
+    }
+    .portada img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+      margin: 20px 0;
+      border: 2px solid #e0e0e0;
+    }
+    .btn-inicio {
+      background: linear-gradient(135deg, #003366, #0055aa);
+      color: white;
+      border: none;
+      padding: 16px 32px;
+      font-size: 18px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      box-shadow: 0 4px 15px rgba(0, 51, 102, 0.3);
+    }
+    .btn-inicio:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 51, 102, 0.4);
+    }
+
+    /* Pasos */
+    .step {
+      background-color: white;
+      border-radius: 16px;
+      box-shadow: 0 6px 25px rgba(0,0,0,0.1);
+      padding: 30px;
+      margin-bottom: 30px;
+      border-left: 6px solid #003366;
+      display: none;
+      animation: fadeIn 0.6s ease-in-out;
+    }
+    .step.active {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    h2 {
+      color: #003366;
+      margin-bottom: 20px;
+      font-size: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    h2 i {
+      background-color: #003366;
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+    .btn-group {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 25px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    button {
+      background-color: #003366;
+      color: white;
+      border: none;
+      padding: 12px 28px;
+      font-size: 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+    }
+    button:hover {
+      background-color: #002244;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    button.secondary {
+      background-color: #6c757d;
+    }
+    button.secondary:hover {
+      background-color: #5a6268;
+    }
+    button.copilot {
+      background-color: #007bff;
+      background-image: linear-gradient(45deg, #0056b3, #007bff);
+    }
+    button.copilot:hover {
+      background-color: #0056b3;
+    }
+    button.copilot-externo {
+      background-color: #6f42c1;
+      background-image: linear-gradient(45deg, #5a32a3, #6f42c1);
+    }
+    button.copilot-externo:hover {
+      background-color: #5a32a3;
+    }
+    .warning {
+      background-color: #fff3cd;
+      color: #856404;
+      padding: 15px;
+      border-radius: 10px;
+      border: 1px solid #ffeaa7;
+      margin: 20px 0;
+      font-size: 15px;
+    }
+    .result {
+      background-color: #e8f4fd;
+      border: 1px solid #b3d9ff;
+      border-radius: 12px;
+      padding: 25px;
+      margin-top: 20px;
+      font-size: 16px;
+    }
+    .project {
+      background-color: #e9f7ef;
+      border: 1px solid #a3e4d7;
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 20px;
+    }
+    .project h3 {
+      color: #27ae60;
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+    .checkbox-group {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 14px;
+      margin: 15px 0;
+    }
+    .checkbox-item {
+      display: flex;
+      align-items: flex-start;
+      padding: 12px;
+      border: 1px solid #e0e0e0;
+      border-radius: 10px;
+      transition: all 0.3s;
+      background-color: #fafafa;
+    }
+    .checkbox-item:hover {
+      border-color: #003366;
+      background-color: #f0f5ff;
+      transform: scale(1.02);
+    }
+    .checkbox-item input {
+      margin-top: 6px;
+      margin-right: 10px;
+    }
+    .area-tag {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 0.8em;
+      font-weight: 600;
+      margin-right: 6px;
+      margin-bottom: 4px;
+    }
+    .apropiacion { background-color: #d1ecf1; color: #0c5460; }
+    .programacion { background-color: #d4edda; color: #155724; }
+    .robotica { background-color: #fff3cd; color: #856404; }
+    .datos { background-color: #d1dfff; color: #283e6d; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 0.95em;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 12px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background-color: #eef4ff;
+      font-weight: 600;
+      color: #003366;
+    }
+    .expander {
+      margin: 15px 0;
+      cursor: pointer;
+      color: #003366;
+      font-weight: 600;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .expander i {
+      font-size: 14px;
+      transition: 0.3s;
+    }
+    .expander.expanded i {
+      transform: rotate(90deg);
+    }
+    .expander-content {
+      display: none;
+      margin-top: 15px;
+      padding: 15px;
+      background-color: #f8f9fa;
+      border-radius: 10px;
+      border: 1px solid #dee2e6;
+    }
+    .modulo-selector {
+      display: flex;
+      gap: 15px;
+      margin: 20px 0;
+      flex-wrap: wrap;
+    }
+    .modulo-btn {
+      padding: 14px 24px;
+      background-color: #e9ecef;
+      border: 2px solid #dee2e6;
+      border-radius: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-align: center;
+      flex: 1;
+      min-width: 150px;
+    }
+    .modulo-btn:hover {
+      background-color: #d1d7e0;
+    }
+    .modulo-btn.active {
+      background-color: #003366;
+      color: white;
+      border-color: #003366;
+    }
+    .nivel-tag {
+      display: inline-block;
+      background-color: #003366;
+      color: white;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 600;
+      margin: 10px 0;
+    }
+    .indicadores-container {
+      max-height: 400px;
+      overflow-y: auto;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 15px;
+      background-color: #fafafa;
+    }
+    .indicador-item {
+      margin-bottom: 12px;
+      padding: 10px;
+      border: 1px solid #eee;
+      border-radius: 8px;
+      background-color: white;
+    }
+    .copilot-suggestions {
+      background-color: #fff3cd;
+      border: 1px solid #ffeaa7;
+      border-radius: 10px;
+      padding: 15px;
+      margin: 20px 0;
+    }
+    .suggestion-item {
+      margin-bottom: 15px;
+    }
+    .suggestion-item h4 {
+      color: #856404;
+      margin-bottom: 5px;
+    }
+    .copilot-buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+    @media (max-width: 768px) {
+      .copilot-buttons {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Logo_MEP_Costa_Rica.svg/1200px-Logo_MEP_Costa_Rica.svg.png" alt="Logo MEP">
+      <h1>PNFT 2026<br><small>Generador de Módulos</small></h1>
+    </div>
+    <div class="lang-switch">
+      <button id="btn-es" class="active" onclick="setLang('es')">ES</button>
+      <button id="btn-en" onclick="setLang('en')">EN</button>
+    </div>
+  </header>
+
+  <div class="container">
+    <!-- Paso 0: Portada -->
+    <div class="step active" id="step0">
+      <div class="portada">
+        <h1>🎓 Programa Nacional de Formación Tecnológica</h1>
+        <p>Ministerio de Educación Pública - Costa Rica<br>Dirección de Recursos Tecnológicos en Educación</p>
+        <img src="https://images.unsplash.com/photo-1677442135770-085713778359?auto=format&fit=crop&w=1200&q=80" alt="Tecnología educativa con IA" />
+        <p style="font-size: 18px; margin-top: 20px;">Diseña módulos pedagógicos alineados con el <strong>Itinerario General de Saberes 2026</strong></p>
+        <button onclick="nextStep()" class="btn-inicio">
+          <i class="fas fa-play"></i> <span data-es="Comenzar" data-en="Start">Comenzar</span> →
+        </button>
+      </div>
+    </div>
+
+    <!-- Paso 1: Ciclo -->
+    <div class="step" id="step1">
+      <h2><i class="fas fa-layer-group"></i> <span data-es="1. Elige el ciclo" data-en="1. Choose the cycle">1. Elige el ciclo</span></h2>
+      <div class="checkbox-group">
+        <label class="checkbox-item"><input type="radio" name="ciclo" value="primaria"> Primaria (Preescolar - 6°)</label>
+        <label class="checkbox-item"><input type="radio" name="ciclo" value="secundaria"> Secundaria (7° - 9°)</label>
+      </div>
+      <div class="btn-group">
+        <div></div>
+        <button onclick="nextStep()"><span data-es="Siguiente →" data-en="Next →">Siguiente →</span></button>
+      </div>
+    </div>
+
+    <!-- Paso 2: Nivel -->
+    <div class="step" id="step2">
+      <h2><i class="fas fa-graduation-cap"></i> <span data-es="2. Elige el nivel educativo" data-en="2. Choose the educational level">2. Elige el nivel educativo</span></h2>
+      <div class="checkbox-group" id="niveles"></div>
+      <div class="btn-group">
+        <button onclick="prevStep()" class="secondary">⬅️ <span data-es="Anterior" data-en="Previous">Anterior</span></button>
+        <button onclick="nextStep()"><span data-es="Siguiente →" data-en="Next →">Siguiente →</span></button>
+      </div>
+    </div>
+
+    <!-- Paso 3: Módulo -->
+    <div class="step" id="step3">
+      <h2><i class="fas fa-book-open"></i> <span data-es="3. Elige el módulo" data-en="3. Choose the module">3. Elige el módulo</span></h2>
+      <p><strong><span data-es="Nivel seleccionado:" data-en="Selected level:">Nivel seleccionado:</span></strong> <span id="nivel-seleccionado" style="color:#003366; font-weight:600;"></span></p>
+      <div class="modulo-selector">
+        <div class="modulo-btn" onclick="selectModulo(1)">Módulo 1</div>
+        <div class="modulo-btn" onclick="selectModulo(2)">Módulo 2</div>
+      </div>
+      <div class="btn-group">
+        <button onclick="prevStep()" class="secondary">⬅️ <span data-es="Anterior" data-en="Previous">Anterior</span></button>
+        <button onclick="nextStep()" id="btn-modulo" disabled><span data-es="Seleccionar Módulo →" data-en="Select Module →">Seleccionar Módulo →</span></button>
+      </div>
+    </div>
+
+    <!-- Paso 4: Saberes Conceptuales -->
+    <div class="step" id="step4">
+      <h2><i class="fas fa-lightbulb"></i> <span data-es="4. Saberes Conceptuales del Módulo" data-en="4. Conceptual Knowledges of the Module">4. Saberes Conceptuales del Módulo</span></h2>
+      <p><strong><span data-es="Módulo seleccionado:" data-en="Selected module:">Módulo seleccionado:</span></strong> <span id="modulo-seleccionado" style="color:#003366; font-weight:600;"></span></p>
+      <div class="checkbox-group" id="conceptuales"></div>
+      <div class="btn-group">
+        <button onclick="prevStep()" class="secondary">⬅️ <span data-es="Anterior" data-en="Previous">Anterior</span></button>
+        <button onclick="nextStep()"><span data-es="Siguiente →" data-en="Next →">Siguiente →</span></button>
+      </div>
+    </div>
+
+    <!-- Paso 5: Indicadores de Logro -->
+    <div class="step" id="step5">
+      <h2><i class="fas fa-check-circle"></i> <span data-es="5. Indicadores de Logro" data-en="5. Learning Indicators">5. Indicadores de Logro</span></h2>
+      <p><span data-es="Selecciona los indicadores que trabajarás:" data-en="Select the indicators you will work on:">Selecciona los indicadores que trabajarás:</span></p>
+      <div class="indicadores-container" id="indicadores"></div>
+      <div class="warning" id="indicador-warning" style="display: none;">⚠️ <span data-es="Debes seleccionar al menos un indicador." data-en="You must select at least one indicator.">Debes seleccionar al menos un indicador.</span></div>
+      <div class="btn-group">
+        <button onclick="prevStep()" class="secondary">⬅️ <span data-es="Anterior" data-en="Previous">Anterior</span></button>
+        <button onclick="nextStep()"><span data-es="Siguiente →" data-en="Next →">Siguiente →</span></button>
+      </div>
+    </div>
+
+    <!-- Paso 6: Saberes Procedimentales y Actitudinales -->
+    <div class="step" id="step6">
+      <h2><i class="fas fa-brain"></i> <span data-es="6. Saberes Procedimentales y Actitudinales" data-en="6. Procedural and Attitudinal Knowledges">6. Saberes Procedimentales y Actitudinales</span></h2>
+      <p><span data-es="Selecciona los que trabajarás:" data-en="Select the ones you will work on:">Selecciona los que trabajarás:</span></p>
+      <h3><span data-es="Saberes Procedimentales" data-en="Procedural Knowledges">Saberes Procedimentales</span></h3>
+      <div class="checkbox-group" id="procedimentales">
+        <label class="checkbox-item"><input type="checkbox" value="Reconoce patrones"> Reconoce patrones</label>
+        <label class="checkbox-item"><input type="checkbox" value="Abstrae"> Abstrae</label>
+        <label class="checkbox-item"><input type="checkbox" value="Generaliza"> Generaliza</label>
+        <label class="checkbox-item"><input type="checkbox" value="Transfiere"> Transfiere</label>
+        <label class="checkbox-item"><input type="checkbox" value="Modulariza"> Modulariza</label>
+        <label class="checkbox-item"><input type="checkbox" value="Formula algoritmos"> Formula algoritmos</label>
+        <label class="checkbox-item"><input type="checkbox" value="Remezcla"> Remezcla</label>
+        <label class="checkbox-item"><input type="checkbox" value="Depura"> Depura</label>
+        <label class="checkbox-item"><input type="checkbox" value="Programa"> Programa</label>
+        <label class="checkbox-item"><input type="checkbox" value="Comunica"> Comunica</label>
+        <label class="checkbox-item"><input type="checkbox" value="Colabora"> Colabora</label>
+        <label class="checkbox-item"><input type="checkbox" value="Piensa de forma creativa"> Piensa de forma creativa</label>
+        <label class="checkbox-item"><input type="checkbox" value="Maneja las tecnologías de forma ética y segura"> Maneja las tecnologías de forma ética y segura</label>
+      </div>
+      <h3><span data-es="Saberes Actitudinales" data-en="Attitudinal Knowledges">Saberes Actitudinales</span></h3>
+      <div class="checkbox-group" id="actitudinales">
+        <label class="checkbox-item"><input type="checkbox" value="Gusto por la precisión"> Gusto por la precisión</label>
+        <label class="checkbox-item"><input type="checkbox" value="Aprender del error"> Aprender del error</label>
+        <label class="checkbox-item"><input type="checkbox" value="Flexibilidad para manejar problemas"> Flexibilidad para manejar problemas</label>
+        <label class="checkbox-item"><input type="checkbox" value="Tolerancia a la frustración"> Tolerancia a la frustración</label>
+      </div>
+      <div class="btn-group">
+        <button onclick="prevStep()" class="secondary">⬅️ <span data-es="Anterior" data-en="Previous">Anterior</span></button>
+        <button onclick="nextStep()"><span data-es="Siguiente →" data-en="Next →">Siguiente →</span></button>
+      </div>
+    </div>
+
+    <!-- Paso 7: Ejes Transversales -->
+    <div class="step" id="step7">
+      <h2><i class="fas fa-network-wired"></i> <span data-es="7. Ejes Transversales" data-en="7. Cross-Cutting Axes">7. Ejes Transversales</span></h2>
+      <div class="checkbox-group" id="ejes">
+        <label class="checkbox-item"><input type="checkbox" value="pensamiento"> Pensamiento computacional</label>
+        <label class="checkbox-item"><input type="checkbox" value="ciudadania"> Ciudadanía y ética digital</label>
+        <label class="checkbox-item"><input type="checkbox" value="emprendimiento"> Emprendimiento e innovación</label>
+      </div>
+      <div class="btn-group">
+        <button onclick="prevStep()" class="secondary">⬅️ <span data-es="Anterior" data-en="Previous">Anterior</span></button>
+        <button onclick="nextStep()"><span data-es="Siguiente →" data-en="Next →">Siguiente →</span></button>
+      </div>
+    </div>
+
+    <!-- Paso 8: Metodología -->
+    <div class="step" id="step8">
+      <h2><i class="fas fa-flask"></i> <span data-es="8. Elige una metodología activa" data-en="8. Choose an active methodology">8. Elige una metodología activa</span></h2>
+      <div class="checkbox-group">
+        <label class="checkbox-item"><input type="radio" name="metodologia" value="design"> Design Thinking</label>
+        <label class="checkbox-item"><input type="radio" name="metodologia" value="retos"> <span data-es="Aprendizaje Basado en Retos" data-en="Challenge-Based Learning">Aprendizaje Basado en Retos</span></label>
+        <label class="checkbox-item"><input type="radio" name="metodologia" value="juegos"> <span data-es="Aprendizaje Basado en Juegos" data-en="Game-Based Learning">Aprendizaje Basado en Juegos</span></label>
+      </div>
+      <div class="btn-group">
+        <button onclick="prevStep()" class="secondary">⬅️ <span data-es="Anterior" data-en="Previous">Anterior</span></button>
+        <button onclick="nextStep()"><span data-es="Generar Módulo →" data-en="Generate Module →">Generar Módulo →</span></button>
+      </div>
+    </div>
+
+    <!-- Resultado final -->
+    <div class="step" id="step9">
+      <h2><i class="fas fa-cube"></i> <span data-es="9. Módulo Pedagógico Integrado" data-en="9. Integrated Pedagogical Module">9. Módulo Pedagógico Integrado</span></h2>
+      <div class="result">
+        <h3>🎯 <span data-es="Indicadores de Logro" data-en="Learning Indicators">Indicadores de Logro</span></h3>
+        <ul id="finalIndicadores"></ul>
+
+        <h3>🧠 <span data-es="Saberes Conceptuales, Procedimentales y Actitudinales" data-en="Conceptual, Procedural and Attitudinal Knowledges">Saberes Conceptuales, Procedimentales y Actitudinales</span></h3>
+        <table>
+          <tr><th><span data-es="Saberes Conceptuales" data-en="Conceptual Knowledges">Saberes Conceptuales</span></th><td id="finalSaberes"></td></tr>
+          <tr><th><span data-es="Saberes Procedimentales" data-en="Procedural Knowledges">Saberes Procedimentales</span></th><td id="finalProcedimentales"></td></tr>
+          <tr><th><span data-es="Saberes Actitudinales" data-en="Attitudinal Knowledges">Saberes Actitudinales</span></th><td id="finalActitudinales"></td></tr>
+          <tr><th><span data-es="Ejes Transversales" data-en="Cross-Cutting Axes">Ejes Transversales</span></th><td id="finalEjes"></td></tr>
+        </table>
+
+        <div class="expander" onclick="toggleExpand('proyectos')">
+          <i class="fas fa-chevron-right"></i> 🚀 <span data-es="Mostrar prototipos de proyectos" data-en="Show project prototypes">Mostrar prototipos de proyectos</span>
+        </div>
+        <div class="expander-content" id="proyectos" style="display: none;">
+          <div id="finalProjects"></div>
+        </div>
+
+        <!-- Botones de Copilot -->
+        <div class="copilot-buttons" style="margin-top: 20px;">
+          <button onclick="generateCopilot()" class="copilot">
+            <i class="fas fa-magic"></i> 🤖 <span data-es="Copilot Educativo (Interno)" data-en="Educational Copilot (Internal)">Copilot Educativo (Interno)</span>
+          </button>
+          <button onclick="abrirCopilot()" class="copilot-externo">
+            <i class="fas fa-external-link-alt"></i> 📘 <span data-es="Preguntar a Copilot (Externo)" data-en="Ask Copilot (External)">Preguntar a Copilot (Externo)</span>
+          </button>
+          <button onclick="copiarConsulta()" class="btn-copy">
+            <i class="fas fa-copy"></i> <span data-es="Copiar consulta" data-en="Copy query">Copiar consulta</span>
+          </button>
+          <button onclick="window.print()" class="btn-pdf">
+            <i class="fas fa-file-pdf"></i> <span data-es="Guardar como PDF" data-en="Save as PDF">Guardar como PDF</span>
+          </button>
+        </div>
+
+        <div id="copilotOutput" class="copilot-suggestions" style="display: none;"></div>
+      </div>
+      <div class="btn-group">
+        <button onclick="prevStep()" class="secondary">⬅️ <span data-es="Regresar" data-en="Back">Regresar</span></button>
+        <button onclick="window.print()"><i class="fas fa-print"></i> <span data-es="Imprimir / Guardar como PDF" data-en="Print / Save as PDF">Imprimir / Guardar como PDF</span></button>
+      </div>
+    </div>
+  </div>
+
+  <footer style="text-align: center; margin-top: 50px; color: #666; padding: 20px; font-size: 14px;">
+    © 2026 Ministerio de Educación Pública - Costa Rica | Dirección de Recursos Tecnológicos en Educación<br>
+    <small>Fuente: Itinerario General de Saberes 2026, Malla PNFT 2023</small>
+  </footer>
+
+  <script>
+    // BASE DE DATOS OFICIAL - EXTRAÍDA DE "Matriz- pnft 2026 v1.docx" Y OTROS DOCUMENTOS
+    const modulosSaberes = {
+      preescolar: {
+        1: {
+          titulo: "Básico",
+          saberes: [
+            "Computadora", "Hardware", "Software", "Herramientas de creación de contenido multimedia",
+            "Entornos de programación iconográfico", "Lateralidad y orientación espacial", "Evento"
+          ],
+          indicadores: [
+            "Reconocer la computadora como una herramienta tecnológica, identificando sus características básicas, funciones e importancia en la vida cotidiana.",
+            "Identificar el software de una computadora, reconociendo elementos básicos de la interfaz de usuario.",
+            "Utilizar herramientas de creación de contenido multimedia para la creación de audios e incorporación de imágenes.",
+            "Reconocer elementos básicos de un entorno de programación iconográfico.",
+            "Reconocer los conceptos de lateralidad y orientación espacial.",
+            "Reconocer que un evento desencadena una acción, identificando la relación de causa y efecto."
+          ]
+        },
+        2: {
+          titulo: "Óptimo",
+          saberes: [
+            "Conexión entre dispositivos", "Estado", "Algoritmo", "Dato (programación)",
+            "Estructuras repetitivas", "Robot", "Dato (Ciencias de datos)", "Estrategias para presentar datos",
+            "Visualización de datos", "Realidad aumentada"
+          ],
+          indicadores: [
+            "Reconocer el bluetooth como medio de conexión entre dispositivos.",
+            "Reconocer el concepto de estado programando objetos que modifican propiedades.",
+            "Organizar datos tipo numérico y de texto, reconociendo su uso en situaciones cotidianas.",
+            "Gestionar una variable en la resolución de ejercicios a través de algoritmos.",
+            "Utilizar estructuras repetitivas en pseudocódigo o programación por bloques.",
+            "Reconocer qué es un robot, sus tipos y componentes (cuerpo, sistema sensorial y sistema de control).",
+            "Identificar el dato y su importancia en situaciones cotidianas.",
+            "Interpretar gráficos pictóricos como parte de la visualización de datos.",
+            "Experimentar con realidad aumentada en entornos físicos mediante actividades sensoriales."
+          ]
+        }
+      },
+      primero: {
+        1: {
+          titulo: "Módulo 1",
+          saberes: [
+            "Computadora", "Hardware", "Software", "Entornos de programación iconográfico",
+            "Reconocimiento de patrones", "Estado", "Algoritmo", "Evento"
+          ],
+          indicadores: [
+            "Reconocer la computadora como una herramienta tecnológica.",
+            "Identificar el hardware básico de una computadora, reconociendo dispositivos de entrada y salida.",
+            "Identificar el software de una computadora, reconociendo elementos básicos de la interfaz de usuario.",
+            "Reconocer elementos básicos de un entorno de programación iconográfico.",
+            "Reconocer patrones de movimiento en secuencias de instrucciones simples.",
+            "Organizar datos tipo numérico y de texto, reconociendo su uso en situaciones cotidianas.",
+            "Gestionar una variable en la resolución de ejercicios a través de algoritmos.",
+            "Utilizar eventos en pseudocódigo o programación para el control de acciones y reacciones."
+          ]
+        },
+        2: {
+          titulo: "Módulo 2",
+          saberes: [
+            "Herramientas de creación de contenido multimedia (audio, imagen)",
+            "Conexión entre dispositivos (bluetooth)", "Internet", "Fundamentos de la IA",
+            "Asistentes virtuales", "Estructuras repetitivas", "Dato (programación)"
+          ],
+          indicadores: [
+            "Utilizar herramientas de creación de contenido multimedia para la creación, edición y guardado de audios e imágenes.",
+            "Reconocer el bluetooth como medio de conexión entre dispositivos.",
+            "Reconocer los dispositivos y programas que permiten la conexión para la navegación en Internet.",
+            "Reconocer los fundamentos de la inteligencia artificial a través de objetos o situaciones del entorno donde esta tecnología está presente.",
+            "Explicar el aporte de los asistentes virtuales en situaciones cotidianas.",
+            "Utilizar estructuras repetitivas en pseudocódigo o programación por bloques.",
+            "Organizar datos tipo numérico y de texto, reconociendo su uso en situaciones cotidianas."
+          ]
+        }
+      },
+      segundo: {
+        1: {
+          titulo: "Módulo 1",
+          saberes: [
+            "Hardware", "Software", "Herramientas de creación de contenido multimedia (grabadora de audio y editores de gráficos)",
+            "Herramienta de productividad (procesador de texto)", "Entorno de programación por bloques",
+            "Algoritmo", "Dato", "Variable", "Evento"
+          ],
+          indicadores: [
+            "Identificar el funcionamiento de los componentes básicos del hardware, reconociendo cómo cuidarlos mientras utilizan la computadora en la cotidianidad.",
+            "Explorar el funcionamiento de diferentes programas de software según la tarea escolar asignada durante el trabajo en aula.",
+            "Utilizar herramientas de creación de contenido multimedia, como la grabadora de audio y editores de gráficos, en la creación, edición y guardado de audios e imágenes.",
+            "Aplicar normas básicas de navegación por internet para acceder a páginas educativas seguras.",
+            "Organizar datos tipo numérico y de texto, reconociendo su uso en situaciones cotidianas.",
+            "Gestionar una variable en la resolución de ejercicios a través de algoritmos o actividades programadas.",
+            "Utilizar eventos en pseudocódigo o programación por bloques para el control de acciones y reacciones en la resolución de ejercicios programados."
+          ]
+        },
+        2: {
+          titulo: "Módulo 2",
+          saberes: [
+            "Conexión entre dispositivos (wifi)", "Internet", "Estructuras repetitivas",
+            "Estructuras condicionales (simples)", "Operadores aritméticos", "Operador relacional",
+            "Fundamentos de la IA", "Asistentes virtuales"
+          ],
+          indicadores: [
+            "Reconocer el wifi como medio de conexión entre dispositivos conectando dispositivos digitales en el aula.",
+            "Aplicar normas básicas de navegación por internet para acceder a páginas educativas seguras.",
+            "Utilizar estructuras repetitivas en pseudocódigo o programación por bloques, resolviendo ejercicios que requieran repeticiones controladas.",
+            "Utilizar estructuras condicionales simples en pseudocódigo o programación por bloques, resolviendo ejercicios que requieran tomar decisiones.",
+            "Utilizar operadores aritméticos de multiplicación y división y/o operadores relacionales como “menor que”, “mayor que” o “igual que”, en la resolución de un ejercicio programado.",
+            "Reconocer los fundamentos de la inteligencia artificial a través de objetos o situaciones del entorno donde esta tecnología está presente, mediante actividades guiadas con apoyo visual o audiovisual.",
+            "Explicar el aporte de los asistentes virtuales en situaciones cotidianas, mediante el análisis de ejemplos visuales, simulaciones o actividades guiadas en clase."
+          ]
+        }
+      },
+      tercero: {
+        1: {
+          titulo: "Módulo 1",
+          saberes: [
+            "Hardware (entrada, procesamiento, almacenamiento y salida)", "Redes de comunicación",
+            "Gestión de archivos", "Herramienta de productividad (editor de presentaciones)",
+            "Algoritmo", "Variable", "Operadores aritméticos", "Operadores relacionales"
+          ],
+          indicadores: [
+            "Explicar las funciones básicas del hardware (entrada, procesamiento, almacenamiento y salida), en actividades prácticas con dispositivos computacionales en el aula.",
+            "Describir qué son las redes de comunicación y cómo funciona una red local, a partir de la observación y la práctica de intercambio de información entre dispositivos conectados en el aula.",
+            "Organizar archivos y carpetas, aplicando acciones básicas como crear, mover, copiar, renombrar y eliminar archivos y carpetas, en actividades escolares.",
+            "Utilizar herramientas de productividad, como el editor de presentaciones, en la creación de contenidos comunicativos adecuados al propósito y contexto de uso.",
+            "Diseñar un algoritmo para resolver un problema, representándolo de forma estructurada mediante pseudocódigo o diagrama de flujo.",
+            "Organizar datos tipo numérico y de texto, reconociendo su uso en situaciones cotidianas.",
+            "Utilizar operadores aritméticos de multiplicación y división y/o operadores relacionales como “menor que”, “mayor que” o “igual que”, en la resolución de un ejercicio programado."
+          ]
+        },
+        2: {
+          titulo: "Módulo 2",
+          saberes: [
+            "Herramientas de creación de contenido multimedia (video)", "Navegador", "Buscador",
+            "Netiqueta", "Comunicación y colaboración sincrónica y asincrónica", "Huella digital",
+            "Software malicioso", "Riesgo en línea", "Medidas de seguridad web", "Desafíos de la IA"
+          ],
+          indicadores: [
+            "Utilizar herramientas de creación de contenido multimedia, como el editor de video, en la creación, edición y guardado de productos digitales.",
+            "Utilizar navegadores y buscadores web en la búsqueda de información en internet, aplicando estrategias básicas de búsqueda y principios de seguridad digital.",
+            "Aplicar normas de netiqueta durante la interacción en entornos digitales, respetando la opinión de los demás y evitando comportamientos ofensivos.",
+            "Reconocer la huella digital como el rastro de actividades en línea, valorando su impacto en la identidad digital.",
+            "Reconocer las características del software malicioso, analizando los riesgos asociados al uso de sitios web o aplicaciones potencialmente peligrosas.",
+            "Identificar riesgos en línea como la suplantación de identidad, grooming, phishing y noticias falsas, analizando acciones básicas de prevención en sus interacciones digitales.",
+            "Aplicar medidas de protección digital mediante el reconocimiento de tipos de software malicioso y el uso adecuado del antivirus, valorando su actualización como parte de una ciudadanía digital responsable.",
+            "Identificar los desafíos de la inteligencia artificial en la vida cotidiana y algunas recomendaciones para su uso seguro y responsable, con la ayuda de ejemplos guiados."
+          ]
+        }
+      },
+      cuarto: {
+        1: {
+          titulo: "Módulo 1",
+          saberes: [
+            "Hardware", "Software", "Redes de comunicación", "Conexión entre dispositivos",
+            "Gestión de archivos", "Herramienta de productividad (procesador de texto, editor de presentaciones)",
+            "Entorno de programación por bloques", "Estado", "Algoritmo (pseudocódigo)", "Dato",
+            "Variable", "Estructuras repetitivas", "Eventos"
+          ],
+          indicadores: [
+            "Clasificar componentes de hardware según su función, distinguiendo entre dispositivos computacionales y periféricos.",
+            "Reconocer el software identificando sus tipos (de sistema, de aplicación y utilitarios), valorando su función en el uso cotidiano de dispositivos tecnológicos.",
+            "Explicar cómo las direcciones IP permiten la conexión entre dispositivos y su comunicación dentro de una red local o en internet, comprendiendo su función en situaciones cotidianas.",
+            "Reconocer la conexión entre dispositivos identificando si es física o inalámbrica, valorando sus aplicaciones en contextos cotidianos.",
+            "Organizar archivos y carpetas, aplicando acciones básicas como crear, mover, copiar, renombrar y eliminar archivos y carpetas, en actividades escolares.",
+            "Aplicar herramientas de productividad, como el procesador de texto y/o editor de presentaciones, en la creación de productos comunicativos adecuados al propósito y contexto de uso.",
+            "Utilizar el entorno de programación por bloques, explorando la interfaz y organizando bloques en el área de programación en la resolución de retos programados.",
+            "Identificar el concepto de estado, reconociendo cambios en las propiedades de orientación, dirección y tamaño de objetos en la creación de un producto programado.",
+            "Hacer uso de algoritmos en pseudocódigo utilizando instrucciones de forma lógica y estructurada en la solución de un producto programado.",
+            "Organizar datos tipo numérico y de texto, reconociendo su uso en situaciones cotidianas.",
+            "Gestionar una variable en la resolución de ejercicios a través de algoritmos o actividades programadas.",
+            "Utilizar estructuras repetitivas en pseudocódigo o programación por bloques, resolviendo ejercicios que requieran repeticiones controladas.",
+            "Utilizar eventos en pseudocódigo o programación para el control de acciones y reacciones de objetos dentro de un programa, comprendiendo su relación de causa y efecto."
+          ]
+        },
+        2: {
+          titulo: "Módulo 2",
+          saberes: [
+            "Herramientas de creación de contenido multimedia (editor gráfico)", "Navegador", "Buscador",
+            "Internet", "Netiqueta", "Comunicación y colaboración sincrónica y asincrónica (chat)",
+            "Huella digital", "Contraseñas seguras", "Hackeo", "Software malicioso", "Antivirus",
+            "Estructuras condicionales", "Operadores aritméticos", "Operadores relacionales",
+            "Fundamentos de la IA", "Asistentes virtuales"
+          ],
+          indicadores: [
+            "Aplicar herramientas de creación de contenido multimedia, como el editor gráfico, en la creación, edición y guardado de imágenes para productos digitales.",
+            "Utilizar navegadores y buscadores web en la búsqueda de información en internet, aplicando estrategias básicas de búsqueda y principios de seguridad digital.",
+            "Aplicar normas de netiqueta durante la interacción en entornos digitales, respetando la opinión de los demás y evitando comportamientos ofensivos.",
+            "Reconocer el funcionamiento de Internet, comprendiendo la conectividad entre dispositivos y el rol de los proveedores de servicio (ISP) en el acceso a la red.",
+            "Utilizar herramientas de comunicación y colaboración sincrónica y asincrónica (correo electrónico, chats, videollamadas), aplicando normas de netiqueta en la redacción, interacción y participación respetuosa en entornos digitales.",
+            "Analizar la utilidad e implicaciones de la huella digital, valorando cómo las acciones en línea afectan la identidad, reputación y seguridad personal en entornos digitales.",
+            "Crear contraseñas seguras con generadores aleatorios, comprendiendo sus características e importancia para la protección de la información personal en entornos digitales.",
+            "Reconocer el hackeo como una amenaza digital, diferenciando tipos de hacker (blanco, negro, gris) y analizando acciones de prevención.",
+            "Reconocer las características del software malicioso, analizando los riesgos asociados al uso de sitios web o aplicaciones potencialmente peligrosas.",
+            "Aplicar medidas de protección digital mediante el reconocimiento de tipos de software malicioso y el uso adecuado del antivirus, valorando su actualización como parte de una ciudadanía digital responsable.",
+            "Aplicar estructuras condicionales simples en pseudocódigo o programación por bloques, resolviendo ejercicios que requieran tomar decisiones.",
+            "Utilizar operadores aritméticos de suma, resta, multiplicación y división en pseudocódigo o programación, resolviendo ejercicios que involucren cálculos automáticos.",
+            "Utilizar operadores relacionales como “menor que”, “mayor que” o “igual que”, en la resolución de un ejercicio programado.",
+            "Identificar los fundamentos de la inteligencia artificial, reconociendo cómo aprende, toma decisiones y se diferencia de otros sistemas automatizados en contextos cotidianos.",
+            "Explicar el aporte de los asistentes virtuales en situaciones cotidianas, mediante el análisis de ejemplos visuales, simulaciones o actividades guiadas en clase."
+          ]
+        }
+      },
+      quinto: {
+        1: {
+          titulo: "Módulo 1",
+          saberes: [
+            "Hardware", "Software", "Conexión entre dispositivos", "Sistema operativo",
+            "Herramientas de creación de contenido multimedia (audio y video)", "Entorno de programación por bloques para computación física",
+            "Lógica de programación", "Algoritmo (diagrama de flujo)", "Computación física",
+            "Circuito eléctrico", "Fundamentos de electrónica", "Microcontrolador",
+            "Herramientas generativas", "Desafíos de la IA"
+          ],
+          indicadores: [
+            "Identificar dispositivos de hardware de entrada y salida mixtos como la impresora multifuncional y las pantallas interactivas, reconociendo su funcionamiento y aplicaciones de computación embebida en contextos cotidianos.",
+            "Identificar la funcionalidad y el propósito de los diferentes softwares de ofimática, reconociendo su utilidad en distintos tipos de archivos digitales escolares.",
+            "Identificar las formas de conexión entre dispositivos mediante comunicación física o inalámbrica, valorando sus aplicaciones en contextos cotidianos.",
+            "Identificar la funcionalidad del escritorio en un sistema operativo, reconociendo sus componentes y su uso en la organización de archivos y aplicaciones.",
+            "Elaborar contenido (audio y/o video) aplicando herramientas de creación y edición de contenido multimedia, ajustando su formato al propósito comunicativo.",
+            "Aplicar el entorno de programación por bloques para computación física en la programación de mecanismos robóticos, utilizando estructuras y eventos.",
+            "Identificar la lógica de programación con el uso de proposiciones y conectores lógicos (AND, OR, NOT), reconociendo su uso en tablas de verdad.",
+            "Diseñar un algoritmo para resolver un problema, representándolo de forma estructurada mediante pseudocódigo o diagrama de flujo.",
+            "Relacionar y diferenciar la computación física con la robótica, identificando cómo los sensores, actuadores y sistemas de control se integran en mecanismos robóticos.",
+            "Identificar componentes básicos de un circuito eléctrico y su funcionamiento, aplicándolos en la construcción de circuitos simples.",
+            "Identificar fundamentos de electrónica, reconociendo la función de los pines de entrada y salida, así como la diferencia entre señales analógicas y digitales.",
+            "Reconocer el funcionamiento básico de un microcontrolador, identificando los pines digitales y analógicos, conexión a VCC y GND.",
+            "Reconocer herramientas digitales generativas que producen contenido a partir de instrucciones sencillas (IA generativa), aplicándolas en la creación de productos digitales.",
+            "Reconocer los desafíos de la inteligencia artificial, identificando riesgos como sesgos, manipulación de información, dependencia tecnológica y privacidad de datos, reflexionando sobre su impacto en la vida laboral, personal y social."
+          ]
+        },
+        2: {
+          titulo: "Módulo 2",
+          saberes: [
+            "Herramienta de productividad (hoja de cálculo)", "Buscador", "Derechos de autor",
+            "Dato (programación y algoritmos)", "Variable", "Colección de datos",
+            "Estructuras condicionales", "Operadores lógicos", "Procedimientos/funciones",
+            "Sensor", "Actuador", "Domótica", "Dato (Ciencias de datos)", "Recolección de datos",
+            "Almacenamiento de datos", "Visualización de datos", "Estrategias para presentar datos"
+          ],
+          indicadores: [
+            "Identificar la funcionalidad de la hoja de cálculo como herramienta de productividad, aplicándola en la organización y representación de datos.",
+            "Utilizar el buscador web como herramienta para la localización de información, aplicando criterios que identifiquen fuentes confiables.",
+            "Reconocer la importancia de los derechos de autor en el uso de contenidos digitales, aplicando buenas prácticas de uso ético y legal.",
+            "Organizar datos tipo numérico y de texto, reconociendo su uso en situaciones cotidianas.",
+            "Gestionar una variable en la resolución de ejercicios a través de algoritmos o actividades programadas.",
+            "Gestionar una colección de datos como listas o arreglos mediante su creación, recorrido y modificación durante la solución de ejercicios programados.",
+            "Aplicar estructuras condicionales múltiples en diagramas de flujo o programación para ejecutar diferentes acciones según varias condiciones establecidas.",
+            "Reconocer operadores lógicos de conjunción (Y) y disyunción (O) en la resolución de problemas, representando condiciones que deben cumplirse de manera conjunta o alternativa.",
+            "Reconocer procedimientos o funciones en programación, comprendiendo cómo se declaran, invocan y se usan parámetros y argumentos en la resolución de un problema.",
+            "Identificar sensores integrados y externos, reconociendo su funcionamiento y la forma de conectarlos a VCC y GND durante la exploración o construcción de prototipos.",
+            "Identificar actuadores integrados y externos, reconociendo cómo se conectan a VCC y GND mientras generan una salida física en prototipos.",
+            "Identificar usos y aplicaciones de la domótica, reconociendo cómo la automatización mejora la comodidad y eficiencia en entornos cotidianos.",
+            "Reconocer la importancia de la organización y conservación del dato, aplicando criterios de seguridad y responsabilidad en la gestión de información.",
+            "Seleccionar técnicas de recolección de datos aplicándolas según el tipo de información que se desea obtener.",
+            "Aplicar formas de almacenamiento de datos como archivos locales o en línea y herramientas digitales como hojas de cálculo.",
+            "Aplicar técnicas de visualización de datos, creando representaciones gráficas simples como gráficos pictóricos o de barras para comunicar información.",
+            "Usar estrategias para presentar datos de forma clara y efectiva en contextos comunicativos."
+          ]
+        }
+      },
+      sexto: {
+        1: {
+          titulo: "Módulo 1",
+          saberes: [
+            "Hardware", "Conexión entre dispositivos", "Redes de comunicación", "Gestión de archivos",
+            "Sistema operativo", "Herramientas de creación de contenido multimedia",
+            "Lógica de programación (tablas de verdad)", "Procedimientos/funciones",
+            "Computación física", "Prototipos"
+          ],
+          indicadores: [
+            "Analizar las funciones de los componentes internos del hardware como la memoria RAM, tarjeta madre, disco duro, microprocesador y tarjetas de red, video y sonido.",
+            "Explicar cómo las direcciones IP permiten la conexión entre dispositivos y su comunicación dentro de una red local o en internet, comprendiendo su función en situaciones cotidianas.",
+            "Crear archivos digitales en plataformas de almacenamiento en la nube, configurando los permisos de uso compartido.",
+            "Aplicar la comunicación y colaboración sincrónica y asincrónica en la creación de documentos, organización de carpetas y gestión del correo electrónico.",
+            "Aplicar formatos básicos de referencias bibliográficas en producciones digitales, valorando la importancia de citar fuentes.",
+            "Analizar aplicaciones del Internet de las cosas en la automatización de tareas, valorando sus ventajas y desventajas en contextos cotidianos.",
+            "Reconocer la utilidad e implicaciones del uso de criptomonedas en entornos digitales cotidianos como juegos, plataformas virtuales o pagos en línea.",
+            "Analizar la utilidad e implicaciones de la huella digital, valorando cómo las acciones en línea afectan la identidad, reputación y seguridad personal en entornos digitales.",
+            "Crear contraseñas seguras con generadores aleatorios, comprendiendo sus características e importancia para la protección de la información personal en entornos digitales.",
+            "Reconocer las características del software malicioso, analizando los riesgos asociados al uso de sitios web o aplicaciones potencialmente peligrosas.",
+            "Identificar riesgos en línea como la suplantación de identidad, grooming, phishing y noticias falsas, analizando acciones básicas de prevención en sus interacciones digitales.",
+            "Aplicar medidas de protección digital mediante el reconocimiento de tipos de software malicioso y el uso adecuado del antivirus, valorando su actualización como parte de una ciudadanía digital responsable.",
+            "Aplicar la lógica de programación (tablas de verdad) con operadores de conjunción y disyunción, evaluando condiciones en algoritmos.",
+            "Emplear procedimientos o funciones (declaración, invocación, parámetros y argumentos) en la resolución de ejercicios programados.",
+            "Aplicar la computación física en la creación de soluciones automatizadas, como respuesta a necesidades concretas del entorno cotidiano.",
+            "Diseñar prototipos de sistemas automatizados, aplicando conocimientos de computación física para resolver necesidades concretas."
+          ]
+        },
+        2: {
+          titulo: "Módulo 2",
+          saberes: [
+            "Herramienta de productividad", "Internet", "Comunicación y colaboración sincrónica y asincrónica",
+            "Almacenamiento en la nube", "Referencias bibliográficas", "Internet de las cosas",
+            "Moneda virtual", "Huella digital", "Contraseñas seguras", "Software malicioso",
+            "Riesgos en línea", "Medidas de seguridad en la web", "Dato (registros)",
+            "Recolección de datos", "Almacenamientos de datos", "Estrategias para presentar datos",
+            "Visualización de datos"
+          ],
+          indicadores: [
+            "Utilizar herramientas de productividad como hojas de cálculo y procesadores de texto en la creación de documentos escolares.",
+            "Utilizar internet como herramienta de investigación, aplicando criterios de fiabilidad.",
+            "Aplicar herramientas de colaboración digital en proyectos escolares.",
+            "Aplicar el almacenamiento en la nube para guardar, organizar y compartir archivos.",
+            "Aplicar formatos básicos de referencias bibliográficas en producciones digitales.",
+            "Analizar aplicaciones del Internet de las cosas en la vida cotidiana.",
+            "Reconocer la utilidad de las monedas virtuales en entornos digitales.",
+            "Analizar la huella digital y su impacto en la identidad digital.",
+            "Crear contraseñas seguras y gestionarlas adecuadamente.",
+            "Reconocer el software malicioso y sus riesgos.",
+            "Identificar riesgos en línea y aplicar estrategias de prevención.",
+            "Aplicar medidas de seguridad en la web.",
+            "Aplicar registros como datos relevantes, organizando información en tablas.",
+            "Seleccionar técnicas de recolección de datos.",
+            "Aplicar formas de almacenamiento de datos.",
+            "Usar estrategias para presentar datos.",
+            "Aplicar técnicas de visualización de datos."
+          ]
+        }
+      },
+      setimo: {
+        1: {
+          titulo: "Módulo 1",
+          saberes: [
+            "Computadora", "Hardware", "Software", "Redes de comunicación", "Sistema operativo",
+            "Gestión de archivos", "Herramientas de creación de contenido multimedia (editor de gráficos)",
+            "Entorno de programación textual o bloques", "Lógica de programación", "Algoritmo",
+            "Dato", "Variable", "Estructuras condicionales", "Estructuras repetitivas",
+            "Operadores relacionales", "Operadores aritméticos", "Evento"
+          ],
+          indicadores: [
+            "Aplicar reglas básicas y responsabilidades durante el uso de una computadora, contribuyendo al cuidado, seguridad y prolongación de su vida útil.",
+            "Clasificar tipos de computadoras y sus componentes principales de hardware, identificando funciones de periféricos comunes al interactuar con dispositivos digitales.",
+            "Distinguir los tipos de software relacionándolos con sus funciones y usos en tareas cotidianas.",
+            "Identificar tipos de redes de comunicación y sus dispositivos principales (módem, router y puntos de acceso), explicando su funcionamiento y principios de comunicación durante la conexión a Internet en contextos cotidianos.",
+            "Identificar las categorías de los sistemas operativos (escritorio y dispositivos móviles), describiendo su función básica y el uso de la papelera como herramienta que elimina y/o recupera archivos.",
+            "Aplicar las propiedades (tamaño, tipo y extensión) en la gestión de archivos para compartir información en diferentes entornos digitales.",
+            "Diseñar productos visuales con herramientas de creación multimedia utilizando editores gráficos, aplicando principios básicos de diseños y formatos adecuados según la calidad requerida.",
+            "Reconocer un entorno de programación textual o bloques, identificando sus funciones para aplicarlos en la resolución de ejercicios.",
+            "Identificar la lógica de programación con el uso de proposiciones y conectores lógicos (AND, OR, NOT), reconociendo su uso en tablas de verdad para la evaluación de expresiones lógicas.",
+            "Reconocer el algoritmo identificando su estructura (entrada, proceso, salida) y aplicando sus características (preciso, finito, definido) como una representación clara y ordenada.",
+            "Identificar tipos de dato y formas de almacenamiento, aplicándolos en la creación de algoritmos para resolver desafíos programados.",
+            "Identificar tipos de variable, aplicando su gestión mediante declaraciones y asignaciones en un entorno de programación.",
+            "Aplicar estructuras condicionales en un entorno de programación para la resolución de desafíos que requieran la toma de decisiones lógicas.",
+            "Aplicar estructuras repetitivas en un entorno de programación para resolver desafíos que requieren la ejecución cíclica de instrucciones.",
+            "Aplicar operadores relacionales para realizar comparaciones dentro de ejercicios de programación.",
+            "Aplicar operadores aritméticos (suma, resta, multiplicación y división) para resolver cálculos dentro de ejercicios de programación.",
+            "Aplicar un evento como acción que se detona mediante una causa y un efecto al resolver desafíos programados."
+          ]
+        },
+        2: {
+          titulo: "Módulo 2",
+          saberes: [
+            "Herramienta de productividad (procesador de texto, editor de presentaciones)", "Internet",
+            "Navegador", "Buscador", "Netiqueta", "Comunicación y colaboración sincrónica/asincrónica",
+            "Almacenamiento en la nube", "Referencias bibliográficas", "Criptomonedas",
+            "Contraseñas seguras", "Software malicioso", "Riesgos en línea", "Operadores lógicos",
+            "Procedimientos y/o funciones", "Dato (Ciencias de datos)", "Fundamentos de la IA",
+            "Asistentes virtuales"
+          ],
+          indicadores: [
+            "Aplicar la herramienta de productividad cómo procesador de texto y/o editor de presentación para crear productos comunicativos adecuados al propósito y contexto de uso.",
+            "Reconocer el funcionamiento de Internet, comprendiendo la conectividad entre dispositivos y el rol de los proveedores de servicio (ISP) en el acceso a la red.",
+            "Utilizar el navegador y el buscador web para acceder y localizar información en línea, gestionando pestañas y aplicando estrategias básicas de búsqueda con principios de seguridad digital.",
+            "Utilizar herramientas de comunicación y colaboración sincrónica y asincrónica (correo electrónico, chats, videollamadas), aplicando normas de netiqueta en la redacción, interacción y participación respetuosa en entornos digitales.",
+            "Utilizar el almacenamiento en la nube para guardar, organizar y compartir archivos, ajustando los permisos de uso compartido según la privacidad requerida.",
+            "Aplicar formatos básicos de referencias bibliográficas en producciones digitales, valorando la importancia de citar fuentes.",
+            "Reconocer la utilidad e implicaciones del uso de criptomonedas en entornos digitales cotidianos como juegos, plataformas virtuales o pagos en línea.",
+            "Crear contraseñas seguras con generadores aleatorios, comprendiendo sus características e importancia para la protección de la información personal en entornos digitales.",
+            "Reconocer las características del software malicioso, analizando los riesgos asociados al uso de sitios web o aplicaciones potencialmente peligrosas en actividades prácticas.",
+            "Identificar riesgos en línea como la suplantación de identidad, grooming, phishing y noticias falsas, analizando acciones básicas de prevención en sus interacciones digitales.",
+            "Aplicar operadores lógicos (Y, O, NO) en la resolución de desafíos de programación que impliquen decisiones.",
+            "Aplicar procedimientos y/o funciones como estructura modular, a través de su declaración e invocación, haciendo uso de parámetros y argumentos durante la solución de desafíos programados.",
+            "Identificar tipos de dato (numéricos, de texto, de ubicación y de imágenes), analizando cómo influye en decisiones y/o comportamientos en redes sociales, historiales de navegación o sistemas de localización.",
+            "Reconocer los fundamentos de la inteligencia artificial, identificando cómo funciona a través de ejemplos visuales, simulaciones o actividades guiadas en clase.",
+            "Explicar el aporte de los asistentes virtuales en situaciones cotidianas, mediante el análisis de ejemplos visuales, simulaciones o actividades guiadas en clase."
+          ]
+        }
+      },
+      octavo: {
+        1: {
+          titulo: "Módulo 1",
+          saberes: [
+            "Hardware", "Software", "Redes de comunicación", "Conexión entre dispositivos",
+            "Sistema Operativo", "Gestión de archivos", "Herramientas de creación de contenido multimedia (edición de audio y video)",
+            "Internet de las cosas", "Entorno de programación textual o bloques para programar mecanismos robóticos",
+            "Robot", "Robótica", "Mecánica aplicada a la robótica", "Mecanismos",
+            "Circuito eléctrico", "Fundamentos de electrónica", "Microcontrolador"
+          ],
+          indicadores: [
+            "Analizar el funcionamiento de los componentes internos del hardware, describiendo cómo influyen en el rendimiento y desempeño del equipo mediante ejemplos prácticos o simulaciones.",
+            "Analizar los tipos de software según su función, comparando las características y usos en diferentes contextos personales, académicos o sociales.",
+            "Identificar las funciones de las unidades de almacenamiento de las redes de comunicación, aplicándolas en la gestión y organización de archivos compartidos en entornos digitales.",
+            "Distinguir las formas de conexión entre dispositivos mediante comunicación física o inalámbrica, identificando sus aplicaciones en contextos cotidianos.",
+            "Reconoce las características del sistema operativo y la diferencia entre software libre y de paga a partir de su funcionalidad, licencia y uso ético.",
+            "Aplicar la compresión y descompresión de archivos como parte de la gestión de archivos digitales, durante el almacenamiento y la manipulación de la información.",
+            "Utilizar herramientas de creación de contenido multimedia en la edición de audio o video, ajustando el formato y calidad al propósito comunicativo.",
+            "Analizar aplicaciones del Internet de las cosas en la automatización de tareas, valorando sus ventajas y desventajas en contextos cotidianos.",
+            "Aplicar el entorno de programación textual o por bloques para programar mecanismos robóticos, utilizando estructuras y eventos en la solución de actividades de automatización.",
+            "Reconocer qué es un robot, sus tipos y componentes (cuerpo, sistema sensorial y sistema de control), diferenciándolo de otros dispositivos no robóticos.",
+            "Relacionar Diferenciar la computación física con la robótica, identificando cómo los sensores, actuadores y sistemas de control se integran en mecanismos robóticos.",
+            "Identificar los componentes de un circuito eléctrico y su funcionamiento, aplicándolos en la construcción de circuitos simples.",
+            "Identificar fundamentos de electrónica, reconociendo la función de pines de entrada y salida, así como la diferencia entre señales analógicas y digitales.",
+            "Comprender los componentes básicos de un microcontrolador, identificando los pines digitales y analógicos, conexión a VCC y GND."
+          ]
+        },
+        2: {
+          titulo: "Módulo 2",
+          saberes: [
+            "Herramienta de productividad (hoja de cálculo)", "Buscador", "Plataformas de creación de contenido",
+            "Licencia", "Hackeo", "Software malicioso", "Antivirus", "Colección de datos",
+            "Recolección de datos", "Fundamentos de la IA", "Herramientas generativas",
+            "Sensor", "Actuador"
+          ],
+          indicadores: [
+            "Utilizar la hoja de cálculo como herramienta de productividad en la organización y representación de datos.",
+            "Utilizar el buscador web como herramienta para la localización de información, aplicando criterios que identifiquen fuentes confiables.",
+            "Utilizar plataformas de creación de contenido digital en la elaboración de infografías, diagramas o presentaciones, organizando la información de forma visual y coherente según el propósito comunicativo.",
+            "Reconocer la licencia digital en el uso de contenido en línea, valorando sus alcances y limitaciones.",
+            "Reconocer el hackeo como una amenaza digital, diferenciando tipos de hacker (blanco, negro, gris) y analizando acciones de prevención.",
+            "Reconocer las características del software malicioso, analizando los riesgos asociados al uso de sitios web o aplicaciones potencialmente peligrosas.",
+            "Aplicar medidas de protección digital mediante el reconocimiento de tipos de software malicioso y el uso adecuado del antivirus, valorando su actualización como parte de una ciudadanía digital responsable.",
+            "Gestionar una colección de datos como listas o arreglos mediante su creación, recorrido y modificación durante la solución de ejercicios programados.",
+            "Aplicar técnicas de recolección de datos mediante registros escolares y personales, valorando su utilidad para la toma de decisiones.",
+            "Reconocer los fundamentos de la inteligencia artificial, identificando cómo funciona a través de ejemplos visuales, simulaciones o actividades guiadas en clase.",
+            "Utilizar herramientas generativas basadas en IA, aplicando funciones para la creación de contenido digital (texto, imagen, audio).",
+            "Utilizar un sensor integrado y/o externo, comprendiendo su función y conexión, para detectar cambios en el entorno físico.",
+            "Utilizar un actuador integrado y/o externo, comprendiendo su función y conexión, para generar movimientos o respuestas físicas."
+          ]
+        }
+      },
+      noveno: {
+        1: {
+          titulo: "Módulo 1",
+          saberes: [
+            "Movimiento en mecanismos", "Microcontrolador", "Sensor", "Actuador",
+            "Domótica", "Prototipos", "Entorno de programación textual o bloques para programar mecanismos robóticos",
+            "Algoritmo", "Dato", "Almacenamiento de datos"
+          ],
+          indicadores: [
+            "Identificar el movimiento en mecanismos robóticos, diferenciando el movimiento de entrada y salida, a partir de la observación y análisis de simulaciones o prototipos básicos que integren sensores y actuadores con diversos planos de movimiento.",
+            "Aplicar las funciones de un microcontrolador, utilizando pines digitales y analógicos, conexión a VCC y GND y comunicación con sensores y actuadores durante la simulación o construcción de prototipos.",
+            "Integrar un sensor en un prototipo, utilizando sus datos como entrada para generar respuestas automatizadas mediante un microcontrolador.",
+            "Integrar un actuador en un prototipo, programando su activación como respuesta a entradas digitales o condiciones del sistema mediante un microcontrolador.",
+            "Analizar los usos, aplicaciones y beneficios de la domótica, mediante la creación o simulación de un prototipo que responda a necesidades reales en un entorno cotidiano.",
+            "Construir prototipos que integren sensores, actuadores y un microcontrolador, a partir de una necesidad identificada en su contexto.",
+            "Diseñar soluciones automatizadas en un entorno de programación textual o por bloques para programar mecanismos robóticos.",
+            "Diseñar un algoritmo para resolver un problema, representándolo de forma estructurada mediante pseudocódigo o diagrama de flujo.",
+            "Reconocer la importancia de la organización y conservación del dato, aplicando criterios de seguridad y responsabilidad en la gestión de información.",
+            "Reconocer el ciclo de vida del dato en el almacenamiento de datos, identificando las etapas de creación, uso, conservación y eliminación responsable."
+          ]
+        },
+        2: {
+          titulo: "Módulo 2",
+          saberes: [
+            "Redes de comunicación", "Sistema Operativo", "Herramienta de productividad (gestor de bases de datos)",
+            "Herramientas de creación de contenido multimedia", "Plataformas de creación de contenido",
+            "Derechos de autor y licenciamiento", "Huella digital", "Riesgos en línea",
+            "Herramientas generativas", "Desafíos de la IA"
+          ],
+          indicadores: [
+            "Reconocer las redes de comunicación a partir de su arquitectura, protocolos (como HTTP, HTTPS y TCP/IP) e interfaces, comprendiendo su funcionamiento durante el intercambio de datos.",
+            "Aplicar técnicas de optimización del sistema operativo, identificando cómo gestionar memoria, desfragmentar discos, limpiar caché y actualizar el sistema para el mejoramiento del desempeño de dispositivos.",
+            "Utilizar un gestor de bases de datos como herramienta de productividad para la creación de tablas, estableciendo relaciones entre ellas y realizando consultas en la organización de la información.",
+            "Utilizar herramientas de creación de contenido multimedia para el modelado 3D, aplicando funciones básicas de creación y edición en productos digitales.",
+            "Crear encuestas o formularios mediante plataformas de creación de contenido, ajustando su formato y estructura al propósito de recolección o evaluación de datos.",
+            "Reconocer la importancia de los derechos de autor y el licenciamiento, aplicando buenas prácticas de uso ético y legal de contenidos digitales.",
+            "Analizar la utilidad e implicaciones de la huella digital, valorando cómo las acciones en línea afectan la identidad, reputación y seguridad personal en entornos digitales.",
+            "Analizar riesgos en línea (acceso a información inapropiada, ciberadicción, ciberacoso y el sexting), valorando estrategias de prevención y autocuidado en sus interacciones digitales.",
+            "Aplicar herramientas generativas con inteligencia artificial en la producción de contenido digital, considerando criterios de seguridad, propiedad intelectual y responsabilidad digital.",
+            "Reconocer los desafíos de la inteligencia artificial, identificando riesgos como sesgos, manipulación de información, dependencia tecnológica y privacidad de datos, reflexionando sobre su impacto en la vida laboral, personal y social."
+          ]
+        }
+      }
+    };
+
+    // Estado
+    let currentStep = 0;
+    let selectedCiclo = null;
+    let selectedNivel = null;
+    let selectedModulo = null;
+    let selectedSaberes = [];
+    let selectedIndicadores = [];
+    let selectedProcedimentales = [];
+    let selectedActitudinales = [];
+    let selectedEjes = [];
+    let selectedMetodologia = null;
+    let lang = 'es';
+
+    function setLang(l) {
+      lang = l;
+      document.querySelectorAll('[data-es]').forEach(el => {
+        el.innerText = el.dataset[lang];
+      });
+      document.getElementById('btn-es').classList.toggle('active', l === 'es');
+      document.getElementById('btn-en').classList.toggle('active', l === 'en');
+    }
+
+    function showStep(step) {
+      document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+      document.getElementById('step' + step).classList.add('active');
+      currentStep = step;
+    }
+
+    function nextStep() {
+      if (currentStep === 0) {
+        showStep(1);
+        return;
+      }
+
+      if (currentStep === 1) {
+        selectedCiclo = document.querySelector('input[name="ciclo"]:checked')?.value;
+        if (!selectedCiclo) {
+          alert(lang === 'es' ? "Por favor, selecciona un ciclo." : "Please select a cycle.");
+          return;
+        }
+        loadNiveles();
+        showStep(2);
+        return;
+      }
+
+      if (currentStep === 2) {
+        selectedNivel = document.querySelector('input[name="nivel"]:checked')?.value;
+        if (!selectedNivel) {
+          alert(lang === 'es' ? "Por favor, selecciona un nivel." : "Please select a level.");
+          return;
+        }
+        document.getElementById('nivel-seleccionado').textContent = formatNivel(selectedNivel);
+        showStep(3);
+        return;
+      }
+
+      if (currentStep === 3) {
+        if (!selectedModulo) {
+          alert(lang === 'es' ? "Por favor, selecciona un módulo." : "Please select a module.");
+          return;
+        }
+        document.getElementById('modulo-seleccionado').textContent = `Módulo ${selectedModulo} - ${modulosSaberes[selectedNivel][selectedModulo].titulo}`;
+        loadSaberes();
+        showStep(4);
+        return;
+      }
+
+      if (currentStep === 4) {
+        selectedSaberes = Array.from(document.querySelectorAll('#conceptuales input:checked')).map(el => el.value);
+        if (selectedSaberes.length === 0) {
+          alert(lang === 'es' ? "Selecciona al menos un saber conceptual." : "Select at least one conceptual knowledge.");
+          return;
+        }
+        loadIndicadores();
+        showStep(5);
+        return;
+      }
+
+      if (currentStep === 5) {
+        selectedIndicadores = Array.from(document.querySelectorAll('#indicadores input:checked')).map(el => el.value);
+        if (selectedIndicadores.length === 0) {
+          document.getElementById('indicador-warning').style.display = 'block';
+          return;
+        } else {
+          document.getElementById('indicador-warning').style.display = 'none';
+        }
+        showStep(6);
+        return;
+      }
+
+      if (currentStep === 6) {
+        selectedProcedimentales = Array.from(document.querySelectorAll('#procedimentales input:checked')).map(el => el.value);
+        selectedActitudinales = Array.from(document.querySelectorAll('#actitudinales input:checked')).map(el => el.value);
+        if (selectedProcedimentales.length === 0) {
+          alert(lang === 'es' ? "Selecciona al menos un saber procedimental." : "Select at least one procedural knowledge.");
+          return;
+        }
+        if (selectedActitudinales.length === 0) {
+          alert(lang === 'es' ? "Selecciona al menos un saber actitudinal." : "Select at least one attitudinal knowledge.");
+          return;
+        }
+        showStep(7);
+        return;
+      }
+
+      if (currentStep === 7) {
+        selectedEjes = Array.from(document.querySelectorAll('#ejes input:checked')).map(el => el.value);
+        if (selectedEjes.length === 0) {
+          alert(lang === 'es' ? "Selecciona al menos un eje transversal." : "Select at least one cross-cutting axis.");
+          return;
+        }
+        showStep(8);
+        return;
+      }
+
+      if (currentStep === 8) {
+        selectedMetodologia = document.querySelector('input[name="metodologia"]:checked')?.value;
+        if (!selectedMetodologia) {
+          alert(lang === 'es' ? "Por favor, selecciona una metodología." : "Please select a methodology.");
+          return;
+        }
+        generateFinalModule();
+        showStep(9);
+      }
+    }
+
+    function prevStep() {
+      if (currentStep > 0) {
+        showStep(currentStep - 1);
+      }
+    }
+
+    function loadNiveles() {
+      const container = document.getElementById('niveles');
+      container.innerHTML = '';
+      const niveles = selectedCiclo === 'primaria' 
+        ? ['preescolar', 'primero', 'segundo', 'tercero', 'cuarto', 'quinto', 'sexto']
+        : ['setimo', 'octavo', 'noveno'];
+
+      niveles.forEach(nivel => {
+        const label = document.createElement('label');
+        label.className = 'checkbox-item';
+        label.innerHTML = `<input type="radio" name="nivel" value="${nivel}"> ${formatNivel(nivel)}`;
+        container.appendChild(label);
+      });
+    }
+
+    function selectModulo(num) {
+      selectedModulo = num;
+      document.querySelectorAll('.modulo-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.modulo-btn')[num-1].classList.add('active');
+      document.getElementById('btn-modulo').disabled = false;
+    }
+
+    function loadSaberes() {
+      const container = document.getElementById('conceptuales');
+      container.innerHTML = '';
+      const saberes = modulosSaberes[selectedNivel][selectedModulo].saberes;
+      saberes.forEach(saber => {
+        const label = document.createElement('label');
+        label.className = 'checkbox-item';
+        let areaClass = 'apropiacion';
+        if (saber.includes('programación') || saber.includes('Algoritmo') || saber.includes('Dato') || saber.includes('Variable')) areaClass = 'programacion';
+        if (saber.includes('Robot') || saber.includes('Microcontrolador') || saber.includes('Sensor') || saber.includes('Mecanismo')) areaClass = 'robotica';
+        if (saber.includes('IA') || saber.includes('datos') || saber.includes('Visualización')) areaClass = 'datos';
+        label.innerHTML = `<input type="checkbox" value="${saber}"> <span class="area-tag ${areaClass}">${getAreaName(areaClass)}</span> ${saber}`;
+        container.appendChild(label);
+      });
+    }
+
+    function getAreaName(area) {
+      return area === 'apropiacion' ? 'Apropiación' :
+             area === 'programacion' ? 'Programación' :
+             area === 'robotica' ? 'Robótica' : 'Datos';
+    }
+
+    function loadIndicadores() {
+      const container = document.getElementById('indicadores');
+      container.innerHTML = '';
+      const indicadores = modulosSaberes[selectedNivel][selectedModulo].indicadores;
+      const ul = document.createElement('ul');
+      indicadores.forEach(ind => {
+        const li = document.createElement('li');
+        li.className = 'indicador-item';
+        li.innerHTML = `<label><input type="checkbox" value="${ind}"> ${ind}</label>`;
+        ul.appendChild(li);
+      });
+      container.appendChild(ul);
+    }
+
+    function generateFinalModule() {
+      document.getElementById('finalSaberes').textContent = selectedSaberes.join(', ');
+      document.getElementById('finalIndicadores').innerHTML = selectedIndicadores.map(i => `<li>${i}</li>`).join('');
+      document.getElementById('finalProcedimentales').textContent = selectedProcedimentales.join(', ');
+      document.getElementById('finalActitudinales').textContent = selectedActitudinales.join(', ');
+
+      const ejesMap = {
+        pensamiento: "Pensamiento computacional",
+        ciudadania: "Ciudadanía y ética digital",
+        emprendimiento: "Emprendimiento e innovación"
+      };
+      document.getElementById('finalEjes').textContent = selectedEjes.map(e => ejesMap[e]).join(', ');
+    }
+
+    function toggleExpand(id) {
+      const content = document.getElementById(id);
+      const expander = document.querySelector('.expander');
+      const icon = expander.querySelector('i');
+      if (content.style.display === 'block') {
+        content.style.display = 'none';
+        icon.classList.remove('fa-chevron-down');
+        icon.classList.add('fa-chevron-right');
+        expander.classList.remove('expanded');
+      } else {
+        content.style.display = 'block';
+        icon.classList.remove('fa-chevron-right');
+        icon.classList.add('fa-chevron-down');
+        expander.classList.add('expanded');
+      }
+    }
+
+    function formatNivel(nivel) {
+      const map = {
+        preescolar: 'Preescolar',
+        primero: 'Primero',
+        segundo: 'Segundo',
+        tercero: 'Tercero',
+        cuarto: 'Cuarto',
+        quinto: 'Quinto',
+        sexto: 'Sexto',
+        setimo: 'Séptimo',
+        octavo: 'Octavo',
+        noveno: 'Noveno'
+      };
+      return map[nivel] || nivel;
+    }
+
+    // COPILOT EDUCATIVO INTERNO
+    function generateCopilot() {
+      const output = document.getElementById('copilotOutput');
+      output.style.display = 'block';
+
+      const proyecto = generateProjectIdea();
+      const recursos = generateResources();
+      const sugerencias = generateSuggestions();
+      const evaluacion = generateEvaluation();
+      const adecuacion = generateAdecuacion();
+
+      output.innerHTML = `
+        <div class="suggestion-item">
+          <h4>💡 Idea de Proyecto Integrador</h4>
+          <p><strong>${proyecto.titulo}</strong></p>
+          <p><strong>Producto:</strong> ${proyecto.producto}</p>
+          <p><strong>Duración:</strong> ${proyecto.duracion}</p>
+          <p><strong>Actividades:</strong> ${proyecto.actividades.join('; ')}</p>
+        </div>
+        <div class="suggestion-item">
+          <h4>🛠️ Recursos</h4>
+          <p><strong>Con tecnología:</strong> ${recursos.conTecnologia.join(', ')}</p>
+          <p><strong>Sin internet:</strong> ${recursos.sinInternet.join(', ')}</p>
+        </div>
+        <div class="suggestion-item">
+          <h4>📚 Sugerencias Didácticas</h4>
+          <p>${sugerencias.join(' • ')}</p>
+        </div>
+        <div class="suggestion-item">
+          <h4>✅ Instrumentos de Evaluación</h4>
+          <p>${evaluacion.join(', ')}</p>
+        </div>
+        <div class="suggestion-item">
+          <h4>♿ Adecuación para Estudiantes con Necesidades Específicas</h4>
+          <p>${adecuacion}</p>
+        </div>
+      `;
+    }
+
+    // 📘 ABRIR COPILOT CON PREGUNTA INTELIGENTE Y COMPLETA
+    function abrirCopilot() {
+      if (!selectedNivel || !selectedModulo || selectedSaberes.length === 0) {
+        alert(lang === 'es' ? "Por favor, completa primero la selección del módulo." : "Please complete the module selection first.");
+        return;
+      }
+
+      const indicadoresResumen = selectedIndicadores.slice(0, 3).join(", ");
+      const indicadoresTexto = selectedIndicadores.length > 3 ? indicadoresResumen + "..." : indicadoresResumen;
+
+      const metodoMap = {
+        design: "Design Thinking",
+        retos: "Aprendizaje Basado en Retos",
+        juegos: "Aprendizaje Basado en Juegos"
+      };
+      const metodoNombre = metodoMap[selectedMetodologia] || "activa";
+
+      const ejesMap = {
+        pensamiento: "Pensamiento computacional",
+        ciudadania: "Ciudadanía y ética digital",
+        emprendimiento: "Emprendimiento e innovación"
+      };
+      const ejesTexto = selectedEjes.map(e => ejesMap[e]).join(", ") || "Ninguno";
+
+      const consulta = `Diseña un proyecto pedagógico para estudiantes de ${formatNivel(selectedNivel)} (Módulo ${selectedModulo}) que integre los siguientes elementos:
+  
+  📚 Saberes conceptuales: ${selectedSaberes.join(", ")}.  
+  🎯 Indicadores de logro: ${indicadoresTexto}.  
+  🧩 Metodología: ${metodoNombre}.  
+  🌐 Ejes transversales: ${ejesTexto}.  
+  
+  Incluye:  
+  - Producto final esperado  
+  - Duración estimada (4-6 semanas)  
+  - Actividades por fases (con énfasis en estrategias de mediación pedagógica)  
+  - Recursos con y sin tecnología  
+  - Sugerencias para estudiantes con adecuación curricular  
+  - Instrumentos de evaluación (rúbrica, lista de cotejo)  
+  - Momentos de reflexión y coevaluación  
+  - Actividades desconectadas (sin internet)`;
+
+      const url = `https://copilot.microsoft.com/?q=${encodeURIComponent(consulta)}`;
+      const newWindow = window.open(url, '_blank', 'noopener,noreferrer');
+      if (newWindow) newWindow.focus();
+      else alert(lang === 'es' ? "Por favor, permite ventanas emergentes." : "Please allow pop-ups.");
+    }
+
+    function copiarConsulta() {
+      const textarea = document.createElement('textarea');
+      textarea.value = `Saberes: ${selectedSaberes.join(', ')}\nIndicadores: ${selectedIndicadores.slice(0,3).join(', ')}\nMetodología: ${selectedMetodologia}\nEjes: ${selectedEjes.join(', ')}`;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textarea);
+      alert(lang === 'es' ? 'Consulta copiada al portapapeles' : 'Query copied to clipboard');
+    }
+
+    function generateProjectIdea() {
+      const metodos = {
+        design: ["Empatizar", "Definir", "Idear", "Prototipar", "Probar"],
+        retos: ["Reto", "Investigación", "Diseño", "Implementación", "Presentación"],
+        juegos: ["Juego", "Normas", "Meta", "Reflexión"]
+      };
+      const actividades = metodos[selectedMetodologia] || metodos.design;
+      return {
+        titulo: "Proyecto Integrador: " + formatNivel(selectedNivel),
+        producto: "Prototipo digital o físico",
+        duracion: "4-6 semanas",
+        actividades: actividades.map(a => `${a}: Actividad relacionada con ${selectedSaberes.slice(0,2).join(' y ')}`)
+      };
+    }
+
+    function generateResources() {
+      return {
+        conTecnologia: ["Scratch", "MakeCode", "Canva", "Genially", "Google Forms"],
+        sinInternet: ["Cartulina", "Papelógrafos", "Dramatizaciones", "Maquetas", "Juegos de roles"]
+      };
+    }
+
+    function generateSuggestions() {
+      return [
+        "Integre los saberes de diferentes áreas para fortalecer el pensamiento computacional.",
+        "Promueva la colaboración entre estudiantes mediante roles definidos.",
+        "Use el proyecto como eje central del módulo.",
+        "Incorpore momentos de reflexión diaria sobre el proceso."
+      ];
+    }
+
+    function generateEvaluation() {
+      return ["Rúbrica de proyecto", "Lista de cotejo", "Autoevaluación", "Coevaluación", "Portafolio"];
+    }
+
+    function generateAdecuacion() {
+      return "Para estudiantes con adecuación, proponga tareas con apoyos visuales, tiempo extendido, uso de herramientas de accesibilidad (lectores de pantalla, teclado alternativo) y actividades en pequeños grupos con roles claros.";
+    }
+
+    // Iniciar
+    showStep(0);
+  </script>
+</body>
+</html>
